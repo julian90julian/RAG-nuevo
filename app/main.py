@@ -1,6 +1,5 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from app.rag_engine import responder
 
 app = Flask(__name__)
 
@@ -23,4 +22,4 @@ def preguntar():
     return jsonify({"respuesta": respuesta})
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+    app.run(host="0.0.0.0", port=8080)
