@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+from app.rag_engine import qa_chain
 
 app = Flask(__name__)
 
@@ -18,7 +19,8 @@ def preguntar():
     if not pregunta:
         return jsonify({"error": "No se proporcionó una pregunta"}), 400
 
-    respuesta = responder(pregunta)
+    # Aquí cambiamos la llamada a responder por qa_chain
+    respuesta = qa_chain.run(pregunta)
     return jsonify({"respuesta": respuesta})
 
 if __name__ == "__main__":
