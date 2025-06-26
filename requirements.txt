@@ -8,3 +8,4 @@ langchain-openai
 python-dotenv
 langchain
 openai
+langchain-huggingface
