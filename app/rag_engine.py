@@ -7,6 +7,8 @@ import openai
 import os
 from openai import OpenAIError
 from dotenv import load_dotenv
+from langchain_huggingface import HuggingFaceEmbeddings
+
 
 # 🔐 Cargar clave API desde .env
 load_dotenv()
