@@ -1,0 +1,10 @@
+
+flask
+sentence-transformers
+torch
+langchain
+langchain-core
+langchain-community
+langchain-openai
+faiss-cpu
+openai
