@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from app.rag_engine import qa_chain
+import os
 
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
@@ -20,6 +21,11 @@ def preguntar():
     respuesta = qa_chain.run(pregunta)
     return jsonify({"respuesta": respuesta})
 
-if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0", port=port)
+# 👇 Esta sección solo es necesaria para ejecución local, no para Railway
+# Puedes eliminarla o comentarla
+# if __name__ == "__main__":
+#     port = int(os.environ.get("PORT", 5000))
+#     app.run(host="0.0.0.0", port=port)
+
+# Railway solo necesita que el archivo contenga la variable `app`
+# y se gestiona con Gunicorn desde el Procfile.
