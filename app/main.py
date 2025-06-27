@@ -24,4 +24,6 @@ def preguntar():
     return jsonify({"respuesta": respuesta})
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8080)
+    import os
+    port = int(os.environ.get("PORT", 5000))  # Lee el puerto que Railway asigna
+    app.run(host="0.0.0.0", port=port)
