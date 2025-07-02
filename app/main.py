@@ -21,11 +21,7 @@ def preguntar():
     respuesta = qa_chain.run(pregunta)
     return jsonify({"respuesta": respuesta})
 
-# 👇 Esta sección solo es necesaria para ejecución local, no para Railway
-# Puedes eliminarla o comentarla
-# if __name__ == "__main__":
-#     port = int(os.environ.get("PORT", 5000))
-#     app.run(host="0.0.0.0", port=port)
-
-# Railway solo necesita que el archivo contenga la variable `app`
-# y se gestiona con Gunicorn desde el Procfile.
+# ✅ Este bloque debe estar activo en Render para que escuche el puerto correctamente
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port)
